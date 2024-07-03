@@ -6,14 +6,10 @@
  */
 
 import React, {useEffect} from 'react';
-import type {PropsWithChildren} from 'react';
 import {
-  //PermissionsAndroid,
-  //Platform,
   SafeAreaView,
   ScrollView,
   StatusBar,
-  StyleSheet,
   Text,
   useColorScheme,
   View,
@@ -25,43 +21,13 @@ import {
   LearnMoreLinks,
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
-// import {check, request, PERMISSIONS, RESULTS} from 'react-native-permissions';
-// import Geolocation from '@react-native-community/geolocation';
-// import WifiManager, {type WifiEntry} from 'react-native-wifi-reborn';
-// import NetInfo, {NetInfoState} from '@react-native-community/netinfo';
 import useWifiInfo from './components/useWifiInfo';
 import useNetInfo from './components/useNetInfo';
 import useLocation from './components/useLocation';
-
-type SectionProps = PropsWithChildren<{
-  title: string;
-}>;
-
-function Section({children, title}: SectionProps): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-}
+import SendData from './components/sendData';
+import Section from './components/Section';
+import {DataTransmissionProps} from './types/IDataTransmissionProps';
+import {styles} from './styles';
 
 const App: React.FC = () => {
   const isDarkMode = useColorScheme() === 'dark';
@@ -77,6 +43,12 @@ const App: React.FC = () => {
     console.log('netInfo Information:', netInfo);
     console.log('WiFi Information:', wifiList);
   }, [wifiList, netInfo]);
+
+  const dataToSend: DataTransmissionProps = {
+    location,
+    netInfo,
+    wifiList,
+  };
 
   return (
     <SafeAreaView style={backgroundStyle}>
@@ -157,27 +129,9 @@ const App: React.FC = () => {
           <LearnMoreLinks />
         </View>
       </ScrollView>
+      <SendData data={dataToSend} />
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
 export default App;
