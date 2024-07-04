@@ -20,7 +20,7 @@ To get started with OracleApp, follow these steps:
 
 1. **Clone the repository:**
 
-   git clone https://github.com/your-username/oracleapp.git
+   git clone https://github.com/guibros/oracleapp.git
    cd oracleapp
 
 2. **Install dependencies:**
