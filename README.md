@@ -61,6 +61,7 @@ Make sure you have an Android/iOS simulator or device connected.
 
 ## Folder Structure
 
+```
 /oracleapp
 ├── /android
 ├── /ios
@@ -81,7 +82,7 @@ Make sure you have an Android/iOS simulator or device connected.
 ├── .env
 ├── package.json
 └── tsconfig.json
-
+```
 
 - /android: Contains the Android-specific code and configuration.
 - /ios: Contains the iOS-specific code and configuration.
