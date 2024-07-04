@@ -1,67 +1,102 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# OracleApp
+
+OracleApp is a React Native application designed to gather and send location, network, and WiFi data to a server for secure storage and analysis.
+
+## Table of Contents
+
+- [Installation](#installation)
+- [Configuration](#configuration)
+- [Running the App](#running-the-app)
+- [Folder Structure](#folder-structure)
+- [License](#license)
 
 # Getting Started
 
 > **Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
 
-## Step 1: Start the Metro Server
+## Installation
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+To get started with OracleApp, follow these steps:
 
-To start Metro, run the following command from the _root_ of your React Native project:
+1. **Clone the repository:**
 
-```bash
-# using npm
-npm start
+   git clone https://github.com/your-username/oracleapp.git
+   cd oracleapp
 
-# OR using Yarn
-yarn start
-```
+2. **Install dependencies:**
 
-## Step 2: Start your Application
+    npm install
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+3. **Install required packages for ios:**
 
-### For Android
+    npx pod-install
 
-```bash
-# using npm
-npm run android
+## Configuration
 
-# OR using Yarn
-yarn android
-```
+1. **Environment Variables:**
 
-### For iOS
+   Create a .env file in the root directory and add any necessary environment variables.
 
-```bash
-# using npm
-npm run ios
+2. **Permissions:**
 
-# OR using Yarn
-yarn ios
-```
+    Ensure that the app has the necessary permissions for accessing location and network information. You may need to modify the AndroidManifest.xml and Info.plist files.
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+## Running the App
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+1. **Start the React Native Metro Bundler:**
 
-## Step 3: Modifying your App
+   npx react-native start
 
-Now that you have successfully run the app, let's modify it.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+2. **Run the app on Android:**
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+    npx react-native run-android
+
+3. **Run the app on iOS:**
+
+    npx react-native run-ios
+
+    
+Make sure you have an Android/iOS simulator or device connected.
+
+## Folder Structure
+
+/oracleapp
+├── /android
+├── /ios
+├── /src
+│   ├── /components
+│   │   ├── Section.tsx
+│   │   ├── sendData.tsx
+│   │   ├── useLocation.ts
+│   │   ├── useNetInfo.ts
+│   │   └── useWifiInfo.ts
+│   ├── /types
+│   │   ├── IDataTransmissionProps.ts
+│   │   ├── ILocation.ts
+│   │   ├── INetworkInfo.ts
+│   │   └── IWifiInfo.ts
+│   ├── App.tsx
+│   └── styles.ts
+├── .env
+├── package.json
+└── tsconfig.json
+
+
+- /android: Contains the Android-specific code and configuration.
+- /ios: Contains the iOS-specific code and configuration.
+- /src: Contains the source code for the React Native app.
+    - /components: Contains the reusable components.
+    - /types: Contains TypeScript type definitions.
+    - App.tsx: The main application file.
+    - styles.ts: The stylesheet for the application.
 
 ## Congratulations! :tada:
 
-You've successfully run and modified your React Native App. :partying_face:
+You've successfully run the React Native OracleApp. :partying_face:
 
 ### Now what?
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
 - If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
 
 # Troubleshooting
@@ -77,3 +112,11 @@ To learn more about React Native, take a look at the following resources:
 - [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
 - [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
 - [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+
+
+# License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+
+These README files provide clear instructions on how to set up, configure, and run both the OracleApp and the server.
